@@ -56,4 +56,5 @@ Model2 아키텍처는 **MVC 패턴**을 웹 개발에 도입한 구조이다.
 
 ### 참고
 > https://devdange.tistory.com/entry/Web-Model1-Model2-MVC-%ED%8C%A8%ED%84%B4%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%9E%A5%EB%8B%A8%EC%A0%90
+
 > https://velog.io/@ovan/MVC-Model1%EA%B3%BC-MVC-Model2

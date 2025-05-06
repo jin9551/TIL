@@ -9,11 +9,15 @@ Enum은 "Enumeration"의 약자이며, Enumeration은 "열거, 목록, 일람표
 
 이와 같이 **정해져 있는 한정된 데이터 묶음을 열거형 타입인 Enum으로 묶어주면 보다 구조적으로 프로그래밍**을 할 수 있다.
 
+
 * * *
+
 
 ## 왜 enum이 만들어 졌는가?
 
 과거에는 여러가지 방법으로 상수를 정의했다.
+
+
 
 * 1. final 상수
 
@@ -48,7 +52,11 @@ class EnumExample {
 }
 ```
 
+
+
+
 * 2. 인터페이스 상수
+
 
 interface는 반드시 추상 메서드만 선언할 수 있는 것이 아니다. 인터페이스 내에서도 상수를 선언할 수 있는데, 인터페이스의 멤버는 public static final 속성을 생략할 수 있는 특징을 이용하여 코드를 좀 더 간결하게 작성할 수 있다.
 
@@ -109,7 +117,10 @@ public static void main(String[] args) {
 }
 ```
 
+
+
 * 3. 자체 클래스 상수
+ 
 
 상수를 정수값으로 구성하는 것이 아니라 독립된 고유의 객체로 선언하여 자체 클래스로 인스턴스화해 상수처럼 사용하는 기법도 있다.
 
@@ -364,4 +375,5 @@ public enum SampleEnum {
 * * *
 
 > 참고 1 : https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%97%B4%EA%B1%B0%ED%98%95Enum-%ED%83%80%EC%9E%85-%EB%AC%B8%EB%B2%95-%ED%99%9C%EC%9A%A9-%EC%A0%95%EB%A6%AC
+
 > 참고 2 : https://chatgpt.com/g/g-p-67ef79213e58819194ff7ec37770f500-jaba-gongbu/c/6818a1a3-32b4-8009-a09a-2d24d42aeb68

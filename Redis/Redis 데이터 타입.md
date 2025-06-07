@@ -40,6 +40,9 @@ Strings의 특징 :
 * 메세지 queue로 사용하기 적절하다.
 
 
+### 1-4. Hashes
 
-
+* field-value로 구성 되어있는 전형적인 hash의 형태 (파이썬의 딕셔너리나 js객체 정도로 이해하면 된다)
+* key는 하위에 subkey를 이용해 추가적인 Hash Table을 제공하는 자료구조
+* 메모리가 허용하는 한, 제한없이 field를 넣을 수 있다.
 

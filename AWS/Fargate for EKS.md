@@ -72,7 +72,7 @@ EC2                Fargate
 * AWS 서비스와 유기적인 통합
     * VPC 네트워킹, Elastic Load Balancing, IAM 권한, CloudWatch 등 이용 가능
 
-![EKS 1 - EC2](image.png)
+![EKS 1 - EC2](FargateEKS/image.png)
 
 EKS를 런칭을 하면 Pod들이 EC2의 Auto Scaling을 기반으로 해서 Worker Node에 배포가 되기 시작한다. 해당 팟들이 EC2 콘솔에 있는 인스턴스에 탑재가 된다.
 
@@ -90,25 +90,25 @@ Fargate는 EC2 인스턴스와 달리 AWS에서 전체 서버의 확장이나 �
 * AWS 서비스와 유기적인 통합 
     * VPC 네트워킹, Elastic Load Balancing, IAM 권한, CloudWatch 등. Kubernetes Pod과 연계 가능
 
-![EKS 2 - Fargate](image-1.png)
+![EKS 2 - Fargate](FargateEKS/image-1.png)
 
 서버를 관리할 필요가 없어서 서버 콘솔에서 아무것도 안보임
 
 
 ### 통합 운영
 
-![EKS 3 - Mixed](image-2.png)
+![EKS 3 - Mixed](FargateEKS/image-2.png)
 
 EKS + Fargate를 통합하여 운영 가능
 
-![EKS 4 - Mixed](image-3.png)
+![EKS 4 - Mixed](FargateEKS/image-3.png)
 
 
 ## 간단 팁들
 
 ### Eksctl (EKS 컨트롤)
 
-![Eksctl](image-4.png)
+![Eksctl](FargateEKS/image-4.png)
 
 Eksctl이란 오픈소스로 만들어진 EKS 관리하는 커맨드 라인
 
@@ -116,12 +116,12 @@ Eksctl이란 오픈소스로 만들어진 EKS 관리하는 커맨드 라인
 
 ### Fargate 프로파일 템플릿 
 
-![Fargate Profile Template](image-5.png)
+![Fargate Profile Template](FargateEKS/image-5.png)
 
 
 ### 배포 흐름도
 
-![deployment flow](image-6.png)
+![deployment flow](FargateEKS/image-6.png)
 
 1. 기본적으로 pod이 있다.
 2. 이 pod을 쿠버네티스 관리하는 부분에 세팅을 하면, EKS로 넘어가게 된다. 여기서 Fargate Profile이 세팅이된다.

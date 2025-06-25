@@ -9,6 +9,11 @@
 * **(00:01)** Logback은 `log4j` 기반으로 개발된 로깅 프레임워크로, **성능과 메모리 효율**이 향상됨.
 * **로그 레벨**: TRACE < DEBUG < INFO < WARN < ERROR
   운영 환경에선 `INFO` 또는 `WARN`, 개발 환경에선 `DEBUG` 또는 `TRACE` 사용.
+  * TRACE가 가장 상세함
+  * DEBUG는 로그가 많이 나와서 성능 저하의 우려가 있음. 그래서 운영에서는 INFO나 WARN정도 사용.
+  > 참조 : https://sharonprogress.tistory.com/198
+
+* log4j > logback > log4j2 순으로 출시 
 
 ---
 
@@ -23,13 +28,15 @@
 ### ✅ **Logback 설정 구조 설명**
 
 * **(04:17)** Spring Boot는 `logback-spring.xml`을 기본 설정 파일로 사용.
-* **(05:21)** 대표적인 Appender:
+* **(05:21)** 대표적인 Appender: Log의 형태 및 어디에 출력할지 설정하기 위한 영역
 
-  * ConsoleAppender
-  * FileAppender
-  * RollingFileAppender (운영 환경에서 가장 일반적)
-  * SMTPAppender
-  * DBAppender
+  * **ConsoleAppender** : 콘솔에 로그를 출력
+  * **FileAppender** : 파일에 로그를 출력
+  * **RollingFileAppender** (운영 환경에서 가장 일반적) : 여러 개의 파일을 순회하며 로그를 저장
+  * SMTPAppender : 로그를 메일로 보냄
+  * DBAppender : 데이터베이스에 로그를 저장
+
+  ![로그백 구조](LogBack 관련/image.png)
 
 ---
 
@@ -90,9 +97,14 @@
 
  영상에서 설명한 내용을 기반으로 \*\*Logback 설정 XML 파일(logback-spring.xml)\*\*과 **Java 코드 예시**를 각각 정리해드리겠습니다.
 
+ Spring의 경우 logback.xml
+ Spring boot는 logback-spring.xml
+
 ---
 
 ## ✅ 1. `logback-spring.xml` 설정 예시
+
+(05:12) 확인 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

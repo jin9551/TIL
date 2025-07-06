@@ -23,4 +23,4 @@ User(Resource Owner) --> Client(Application) --> Authorization Server --> Resour
 
 ```
 
-![alt text](OAuthImg/image3.png)
+![alt text](/OAuthImg/image3.png)

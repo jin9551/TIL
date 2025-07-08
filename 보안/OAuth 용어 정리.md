@@ -25,4 +25,4 @@ User(Resource Owner) --> Client(Application) --> Authorization Server --> Resour
 
 ![alt text](OAuthImg/image3.png)
 
-> 참조 : https://blog.naver.com/mds_datasecurity/222182943542
+> 참고 : https://blog.naver.com/mds_datasecurity/222182943542

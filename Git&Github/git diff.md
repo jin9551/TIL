@@ -67,6 +67,7 @@ git diff HEAD <파일명>
 ## 🕘 커밋 간 차이 비교
 
 ```bash
+# git log 사용하여 commit id 확인
 git diff <commit1> <commit2>
 ```
 

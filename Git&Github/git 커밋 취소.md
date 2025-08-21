@@ -14,6 +14,14 @@
 >> **HEAD~2**(마지막 2개의 commit 취소)
 
 
+### git 스테이징 영역에서 파일 내리기
+
+``` bash
+git restore --staged [파일이름 혹은 경로]
+```
+
+
+
 > 참고 1 (reset revert 개요 및 사용법): https://velog.io/@njs04210/Git-reset%EA%B3%BC-revert-%EC%95%8C%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 
 > 참고 2 : https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html

@@ -13,6 +13,9 @@
 ```
 # origin/remote-branch를 로컬 브랜치의 추적 브랜치로 설정
 git branch --set-upstream-to=origin/remote-branch local-branch
+
+# 혹은 간단하게
+git branch -u origin/remote-branch local-branch
 ```
 
 ---

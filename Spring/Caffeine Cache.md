@@ -278,3 +278,76 @@ public class NativeService {
 To access the cache programmatically in a service class, you can inject the `CacheManager` bean. Use `cacheManager.getCache("cacheName")` to retrieve the cache instance and then call `.get(key, type)` or `.put(key, value)` to manage data. Alternatively, for more advanced features, you can directly inject a Caffeine `Cache` object defined as a Bean.
 
 ---
+`SimpleCacheManager`는 Spring이 제공하는 가장 기본적인 캐시 매니저 구현체입니다. **CaffeineCacheManager**와 비교했을 때 가장 큰 차이점은 **"자동화 여부"**와 **"기능의 범위"**입니다.
+
+---
+
+## 1. 주요 차이점 비교
+
+| 구분 | CaffeineCacheManager | SimpleCacheManager |
+| --- | --- | --- |
+| **성격** | Caffeine 라이브러리에 특화된 매니저 | 범용적인 캐시 컨테이너 (단순 저장소) |
+| **자동 생성** | 캐시 이름만 지정하면 설정값에 따라 자동 생성 | **사용할 캐시 객체를 직접 생성해서 주입해야 함** |
+| **기능** | 만료(Expire), 크기 제한, 통계 등 고급 기능 제공 | 주입된 캐시 저장소의 기본 기능에만 의존 |
+| **유연성** | Caffeine 설정으로 모든 캐시 통제 | 서로 다른 종류의 캐시(Caffeine, ConcurrentMap 등)를 혼합 가능 |
+
+---
+
+## 2. SimpleCacheManager 설정 방법
+
+`SimpleCacheManager`는 스스로 캐시를 만들지 못하기 때문에, 개발자가 `CaffeineCache`나 `ConcurrentMapCache` 같은 구체적인 캐시 객체를 생성해서 리스트로 넘겨줘야 합니다.
+
+```java
+@Configuration
+@EnableCaching
+public class CacheConfig {
+
+    @Bean
+    public CacheManager cacheManager() {
+        SimpleCacheManager cacheManager = new SimpleCacheManager();
+
+        // 1. 각 캐시 저장소를 수동으로 생성하고 설정함
+        CaffeineCache userCache = new CaffeineCache("userCache", 
+            Caffeine.newBuilder()
+                .expireAfterWrite(10, TimeUnit.MINUTES)
+                .maximumSize(100)
+                .build());
+
+        CaffeineCache productCache = new CaffeineCache("productCache", 
+            Caffeine.newBuilder()
+                .expireAfterWrite(1, TimeUnit.HOURS)
+                .maximumSize(500)
+                .build());
+
+        // 2. 생성한 캐시들을 리스트 형태로 등록
+        cacheManager.setCaches(Arrays.asList(userCache, productCache));
+        
+        return cacheManager;
+    }
+}
+
+```
+
+---
+
+## 3. 언제 SimpleCacheManager를 쓰나요?
+
+1. **캐시별로 설정이 완전히 다를 때**: 어떤 캐시는 10분 만료, 어떤 캐시는 1시간 만료, 어떤 캐시는 크기 제한 없음 등 각각의 캐시 전략이 매우 다를 경우 유용합니다.
+2. **혼합 캐시 구성**: `CaffeineCache`와 Spring 기본 `ConcurrentMapCache`를 하나의 매니저 안에서 동시에 관리하고 싶을 때 사용합니다.
+3. **명시적 관리**: 애플리케이션에서 사용할 캐시들을 코드상에 명확히 정의(White-list)해두고 싶을 때 사용합니다. (존재하지 않는 캐시 이름을 호출하면 에러가 발생하므로 실수를 방지할 수 있습니다.)
+
+---
+
+## 4. 요약 및 선택 가이드
+
+* **대부분의 경우**: `CaffeineCacheManager`를 사용하세요. 설정이 간결하고, 캐시를 동적으로 생성하기 편합니다.
+* **세밀한 제어가 필요할 때**: 캐시마다 만료 시간이나 크기 제한을 다르게 가져가야 한다면 `SimpleCacheManager`를 사용하여 각각의 `Caffeine` 인스턴스를 수동으로 등록하는 것이 좋습니다.
+
+---
+
+### 번역 (Translation)
+
+**In English:**
+The main difference is automation. `CaffeineCacheManager` automatically creates caches based on a common configuration, while `SimpleCacheManager` requires you to manually instantiate and register each cache object (e.g., `CaffeineCache`). Use `SimpleCacheManager` when you need highly specific, different settings for each cache store or when mixing different cache implementations.
+
+---

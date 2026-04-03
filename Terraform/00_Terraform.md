@@ -34,7 +34,9 @@ This setup is essential for managing cloud infrastructure with Terraform effecti
 #### Terraform Cloud
 
 * Start by creating a free Terraform Cloud account and set up an organization and workspace using the version control workflow.
+
 * Connect Terraform Cloud to your GitHub repository to manage your Terraform code.
+
 * Configure sensitive environment variables in the workspace for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to allow Terraform to authenticate and manage your AWS infrastructure securely.
 
 This setup is crucial for managing cloud infrastructure efficiently using Terraform in a user-friendly, cloud-based environment.

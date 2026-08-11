@@ -42,4 +42,10 @@
 * **데이터 분석 및 자동화:** 복잡한 보고서 작성 및 비즈니스 프로세스 자동화
 
 
+
+### 개요
 https://library.gabia.com/contents/13880/
+
+### 사용법
+https://daleseo.com/aws-bedrock/
+https://blog.a-cloud.co.kr/2025/03/06/amazon-bedrock%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-chatbot-%EA%B5%AC%ED%98%84-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EB%B6%80/

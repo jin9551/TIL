@@ -19,6 +19,10 @@ brew services로 실행한 Ollama는 간단한 명령어 한 줄로 즉시 안�
    
   ⚬ 확인 방법: 목록에서 ollama의 상태(Status)가 none 또는 stopped로 표시되고, curl http://localhost:11434를 쳤을 때 Failed to connect가 나오면 완전히 꺼진 상태입니다.
 
+3. 모델만 종료
+ollama stop qwen-meeting
+
+
 2. 로그가 계속 쌓여서 용량이 꽉 차지 않을까?
 
 결론부터 말씀드리면 기본적으로 드라이브가 찰 정도로 커지지는 않습니다.
